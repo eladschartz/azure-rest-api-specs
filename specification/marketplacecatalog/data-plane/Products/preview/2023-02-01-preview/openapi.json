@@ -18,8 +18,43 @@
   "consumes": [
     "application/json"
   ],
-  "tags": [],
-  "paths": {},
+  "tags": [
+    {
+      "name": "ListingPublicProducts"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "operationId": "ListProducts",
+        "tags": [
+          "ListingPublicProducts"
+        ],
+        "description": "Returns a list of products",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "apiVersion": {
+                  "type": "string"
+                },
+                "body": {
+                  "$ref": "#/definitions/CatalogApiResponse"
+                }
+              },
+              "required": [
+                "apiVersion",
+                "body"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
   "definitions": {
     "Artifact": {
       "type": "object",
