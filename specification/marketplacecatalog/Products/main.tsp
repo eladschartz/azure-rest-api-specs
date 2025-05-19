@@ -19,5 +19,7 @@ enum Versions {
   @doc("The first preview version of the API.")
   `2023-02-01-preview`,
 }
+
+// Come back to see if this can be done cleaner
 @route("/")
 interface Operations extends ProductOperations {}
