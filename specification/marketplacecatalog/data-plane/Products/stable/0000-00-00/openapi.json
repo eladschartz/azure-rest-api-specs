@@ -1,0 +1,91 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Products",
+    "version": "0000-00-00",
+    "x-typespec-generated": [
+      {
+        "emitter": "@azure-tools/typespec-autorest"
+      }
+    ]
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "catalogapi.azure.com",
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [],
+  "paths": {
+    "/products": {
+      "get": {
+        "operationId": "Products_ListProducts",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PlanSummary": {
+      "type": "object",
+      "description": "A summary of a plan.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the plan."
+        },
+        "legacyId": {
+          "type": "string",
+          "description": "Some other description of the plan."
+        }
+      },
+      "required": [
+        "id",
+        "legacyId"
+      ]
+    },
+    "ProductSummary": {
+      "type": "object",
+      "description": "A summary of a product.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the product."
+        },
+        "legacyId": {
+          "type": "string",
+          "description": "Some other description of the product."
+        }
+      },
+      "required": [
+        "id",
+        "legacyId"
+      ]
+    },
+    "Versions": {
+      "type": "string",
+      "enum": [
+        "2023-02-01-preview"
+      ],
+      "x-ms-enum": {
+        "name": "Versions",
+        "modelAsString": false,
+        "values": [
+          {
+            "name": "v2023_02_01_preview",
+            "value": "2023-02-01-preview"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {}
+}
