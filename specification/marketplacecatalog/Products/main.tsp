@@ -8,41 +8,24 @@ using Versioning;
 using Azure.Core;
 
 @service(#{ title: "Products" })
-@server("https://catalogapi.azure.com", "The base URL for the Products API.")
+@versioned(Products.Versions)
 namespace Products;
 
+@doc("The Products API provides access to product and plan information.")
 enum Versions {
   @useDependency(Azure.Core.Versions.v1_0_Preview_2)
-  v2023_02_01_preview: "2023-02-01-preview",
+  @doc("The first preview version of the API.")
+  `2023-02-01-preview`,
 }
 
-@resource("ProductSummary")
-@doc("A summary of a product.")
-model ProductSummary {
-  @key("ProductSummary")
+@resource("CatalogApiResponse")
+model CatalogApiResponse {
+  @key("id")
   @doc("The unique identifier for the product.")
   id: string;
-
-  @doc("Some other description of the product.")
-  legacyId: string;
 }
 
-@resource("PlanSummary")
-@parentResource(ProductSummary)
-@doc("A summary of a plan.")
-model PlanSummary {
-  @key("planId")
-  @doc("The unique identifier for the plan.")
-  id: string;
-
-  @doc("Some other description of the plan.")
-  legacyId: string;
-}
-
-@route("/products")
-namespace Products {
-  @get
-  op listProducts(): {
-    @statusCode statusCode: 200;
-  };
+interface CatalogApiResponses {
+  @doc("Get a standard response")
+  getStandardResponse is ResourceRead<CatalogApiResponse>;
 }
