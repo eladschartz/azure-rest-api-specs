@@ -19,3 +19,5 @@ enum Versions {
   @doc("The first preview version of the API.")
   `2023-02-01-preview`,
 }
+@route("/")
+interface Operations extends ProductOperations {}
