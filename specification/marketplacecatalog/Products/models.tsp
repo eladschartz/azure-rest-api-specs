@@ -1011,3 +1011,18 @@ model Availability {
   @doc("Display rank")
   displayRank: int32;
 }
+
+@doc("Retail price with currency")
+model Price {
+  @doc("Currency code i.e. 'USD'")
+  currencyCode?: string;
+
+  @doc("A value indicating whether a payment instrument is required")
+  isPIRequired: boolean;
+
+  @doc("Retail price for the item")
+  listPrice: float32;
+
+  @doc("Manufacturer's suggested retail price for the item")
+  msrp: float32;
+}
