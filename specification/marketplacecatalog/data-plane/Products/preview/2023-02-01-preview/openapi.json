@@ -84,6 +84,57 @@
         }
       }
     },
+    "Availability": {
+      "type": "object",
+      "description": "Availability for a given plan",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The document id"
+        },
+        "actions": {
+          "type": "array",
+          "description": "List of allowed actions",
+          "items": {
+            "type": "string"
+          }
+        },
+        "meter": {
+          "$ref": "#/definitions/Meter",
+          "description": "Applicable billing meter information"
+        },
+        "pricingAudience": {
+          "$ref": "#/definitions/PricingAudience",
+          "description": "Supported pricing audiences"
+        },
+        "terms": {
+          "type": "array",
+          "description": "List of applicable terms",
+          "items": {
+            "$ref": "#/definitions/Term"
+          },
+          "x-ms-identifiers": []
+        },
+        "hasFreeTrials": {
+          "type": "boolean",
+          "description": "A value indicating whether it has free trials"
+        },
+        "consumptionUnitType": {
+          "type": "string",
+          "description": "Consumption unit type"
+        },
+        "displayRank": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Display rank"
+        }
+      },
+      "required": [
+        "pricingAudience",
+        "hasFreeTrials",
+        "displayRank"
+      ]
+    },
     "AzureBenefit": {
       "type": "string",
       "description": "Eligibility for Azure consumption commitment benefit",
