@@ -12,6 +12,7 @@
   "schemes": [
     "https"
   ],
+  "host": "catalogapi.azure.com",
   "produces": [
     "application/json"
   ],

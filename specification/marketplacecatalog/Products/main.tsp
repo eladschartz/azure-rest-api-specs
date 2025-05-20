@@ -10,6 +10,7 @@ using TypeSpec.Versioning;
 using Azure.Core;
 
 @service(#{ title: "Products" })
+@server("https://catalogapi.azure.com")
 @versioned(Products.Versions)
 namespace Products;
 
