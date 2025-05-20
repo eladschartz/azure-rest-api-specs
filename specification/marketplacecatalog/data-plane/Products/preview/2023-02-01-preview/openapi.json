@@ -3,6 +3,7 @@
   "info": {
     "title": "Products",
     "version": "2023-02-01-preview",
+    "description": "Microsoft Marketplace Catalog Browse API",
     "x-typespec-generated": [
       {
         "emitter": "@azure-tools/typespec-autorest"

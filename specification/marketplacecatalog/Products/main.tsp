@@ -9,6 +9,7 @@ using TypeSpec.Rest;
 using TypeSpec.Versioning;
 using Azure.Core;
 
+@doc("Microsoft Marketplace Catalog Browse API")
 @service(#{ title: "Products" })
 @server("https://catalogapi.azure.com")
 @versioned(Products.Versions)
