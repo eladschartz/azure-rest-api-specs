@@ -2,6 +2,7 @@ import "@typespec/rest";
 import "@azure-tools/typespec-azure-core";
 
 using Azure.Core;
+using TypeSpec.Http;
 
 @doc("Eligibility for Azure consumption commitment benefit")
 enum AzureBenefit {
@@ -1025,4 +1026,25 @@ model Price {
 
   @doc("Manufacturer's suggested retail price for the item")
   msrp: float32;
+}
+
+@doc("The API error response object")
+@error
+model ErrorResponse {
+  @body
+  @doc("The API response details")
+  error: ErrorResponseDetails;
+
+  /** The error code returned in the response header. */
+  @header("x-ms-error-code")
+  errorCode: string;
+}
+
+@doc("The API error response details object")
+model ErrorResponseDetails {
+  @doc("The error code description. Such as code=InternalError")
+  code: string;
+
+  @doc("The error message. Such as message=Internal server error")
+  message: string;
 }
